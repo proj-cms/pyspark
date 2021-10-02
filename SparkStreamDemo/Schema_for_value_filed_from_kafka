@@ -1,0 +1,44 @@
+Schema of Kafka stream when read in to DF using spark.
+
+root
+ |-- key: binary (nullable = true)
+ |-- value: binary (nullable = true)
+ |-- topic: string (nullable = true)
+ |-- partition: integer (nullable = true)
+ |-- offset: long (nullable = true)
+ |-- timestamp: timestamp (nullable = true)
+ |-- timestampType: integer (nullable = true)
+
+
+
+#look at the code  how this read and flattened
+
+root
+ |-- value: struct (nullable = true)
+ |    |-- InvoiceNumber: string (nullable = true)
+ |    |-- CreatedTime: long (nullable = true)
+ |    |-- StoreID: string (nullable = true)
+ |    |-- PosID: string (nullable = true)
+ |    |-- CashierID: string (nullable = true)
+ |    |-- CustomerType: string (nullable = true)
+ |    |-- CustomerCardNo: string (nullable = true)
+ |    |-- TotalAmount: double (nullable = true)
+ |    |-- NumberOfItems: integer (nullable = true)
+ |    |-- PaymentMethod: string (nullable = true)
+ |    |-- CGST: double (nullable = true)
+ |    |-- SGST: double (nullable = true)
+ |    |-- CESS: double (nullable = true)
+ |    |-- DeliveryType: string (nullable = true)
+ |    |-- DeliveryAddress: struct (nullable = true)
+ |    |    |-- AddressLine: string (nullable = true)
+ |    |    |-- City: string (nullable = true)
+ |    |    |-- State: string (nullable = true)
+ |    |    |-- PinCode: string (nullable = true)
+ |    |    |-- ContactNumber: string (nullable = true)
+ |    |-- InvoiceLineItems: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- ItemCode: string (nullable = true)
+ |    |    |    |-- ItemDescription: string (nullable = true)
+ |    |    |    |-- ItemPrice: double (nullable = true)
+ |    |    |    |-- ItemQty: integer (nullable = true)
+ |    |    |    |-- TotalValue: double (nullable = true)
