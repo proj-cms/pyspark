@@ -66,7 +66,7 @@ class BinarySearchTree:
         return elements
 
     def post_order_traversal(self):
-        # root-left-right
+        # left-right-root
         elements = []
 
         if self.left:

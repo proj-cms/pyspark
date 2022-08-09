@@ -1,3 +1,4 @@
+# merge sort time complexity  - (nlog n)
 def merge_sort(arr):
 
     # this check and return is important else  the method goes in endless recursion
