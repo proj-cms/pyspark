@@ -4,6 +4,7 @@ from heapq import heapify, heappush, heappop
 
 def dijsktra(graph, src, dest):
     inf = sys.maxsize
+    # create a data structure to store the cost and predecessor
     node_data = {'A': {'cost': inf, 'pred': []},
                  'B': {'cost': inf, 'pred': []},
                  'C': {'cost': inf, 'pred': []},
@@ -11,15 +12,17 @@ def dijsktra(graph, src, dest):
                  'E': {'cost': inf, 'pred': []},
                  'F': {'cost': inf, 'pred': []}
                  }
+    # assign source node cost to ZERO as its starting node
     node_data[src]['cost'] = 0
     visited = []
-    temp = src
-    for i in range(5): # this range is decided b the number of noes - 1
-        if temp not in visited:  # Reassign source
+    temp = src # assign the source node to temp
+    for i in range(5): # this range is decided b the number of nodes - 1
+        if temp not in visited:
             visited.append(temp)
             min_heap = []
-            for j in graph[temp]:
+            for j in graph[temp]: # iterate over all connecting nodes of current node
                 if j not in visited:
+                    # calculate the cost as cost till now + cost from graph so the each node get accumulated ocst
                     cost = node_data[temp]['cost'] + graph[temp][j]
                     if cost < node_data[j]['cost']:
                         node_data[j]['cost'] = cost
@@ -27,7 +30,7 @@ def dijsktra(graph, src, dest):
                     heappush(min_heap, (node_data[j]['cost'], j))
         heapify(min_heap)
         # print (f'checking heap : {min_heap}')
-        temp = min_heap[0][1]
+        temp = min_heap[0][1] # Reassign source
     print("Shortest Distance: " + str(node_data[dest]['cost']))
     print("Shortest Path: " + str(node_data[dest]['pred'] + list(dest)))
 
