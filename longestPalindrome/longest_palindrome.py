@@ -17,7 +17,10 @@ def callExpandFromCenter(s):
     end = 0
 
     for i in range(len(s)):
+        # odd length case
         len1 = expandFromCenter(s, i, i)
+
+        # even length case
         len2 = expandFromCenter(s, i, i + 1)
         len3 = max(len1, len2)
 
@@ -28,6 +31,8 @@ def callExpandFromCenter(s):
     return s[start:end + 1]
 
 
+# Program time complexity - O(n2)
+# it can be coded with complex Manacher's algo for O(n) time complexity
 if __name__ == "__main__":
     s = "abbbbbba"
     print(callExpandFromCenter(s))
