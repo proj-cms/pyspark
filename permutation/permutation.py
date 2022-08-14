@@ -2,8 +2,10 @@ def permutations(word):
     # word = list(word)
     if len(word) == 1:
         return [word]
-    # recursive call
+    # recursive call with leaving first char behind
     perms = permutations(word[1:])
+
+    # assign first char to a variable
     char = word[0]
     result = []
     for perm in perms:

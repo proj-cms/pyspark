@@ -6,9 +6,13 @@ def permute_list(nums):
 
     for i in range(len(nums)):
         n = nums.pop(0)
+        # split the list leaving the first element and then make recursive call
         perms = permute_list(nums)
+
+        # what ever result is obtained iterate over it
         for perm in perms:
             perm.append(n)
+
         result.extend(perms)
         nums.append(n)
 
