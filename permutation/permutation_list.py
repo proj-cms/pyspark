@@ -8,10 +8,12 @@ def permute_list(nums):
         n = nums.pop(0)
         # split the list leaving the first element and then make recursive call
         perms = permute_list(nums)
-
+        # print(f' DBG : perms : {perms}')
         # what ever result is obtained iterate over it
         for perm in perms:
+            # print(f' DBG : perm : {perm}')
             perm.append(n)
+            # print(f' DBG post append : perm : {perm}')
 
         result.extend(perms)
         nums.append(n)
