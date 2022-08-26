@@ -22,5 +22,5 @@ def permute_list(nums):
 
 
 if __name__ == "__main__":
-    list1 = ['1', '2', '3']
+    list1 = [1, 2, 3]
     print(permute_list(list1))

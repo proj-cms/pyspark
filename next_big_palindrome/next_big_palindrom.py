@@ -3,7 +3,7 @@ def is_palindrome(a):
 
 
 def compare(left, right):
-    for l, r in zip(left, right):
+    for l, r in zip(left, right):  # tuple unpacking
         if l > r:
             return 1
         elif l < r:
@@ -28,14 +28,21 @@ class Solution:
         right = a[mid + 1:]
 
         if compare(left[::-1], right) == 1:
+            # if left half is greater than right then simply append : left + mid + rev(left)
             return left + a[mid] + left[::-1]
         else:
+            # if left is not greater than right then
+            # concat - left + mid
+            # add one to left
+            # reverse left
+            # then concat
             left = left + a[mid]
             left = self.add_1(left)
 
             return left + left[::-1][1:]
 
     def handle_even(self, a):
+        # even will have equal split so no concept of special mid
         n = len(a)
         mid = n // 2
         left = a[:mid]
@@ -66,4 +73,4 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.solve('7'))
+    print(sol.solve('1001'))
