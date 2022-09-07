@@ -89,13 +89,21 @@ def build_tree(elements):
     return root
 
 def isBalanced(node) -> bool:
+    # a binary tree is balanaced when at any node
+    # at_any(node)  = ht(left) - ht(right) <= 1
+
     def dfs(node):
         if not node:  # the node is empty that is we have reached bottom
             return [True, 0]
 
-        left, right = dfs(node.left), dfs(node.right)
+        left = dfs(node.left)
+        right = dfs(node.right)
+
+        # abs(left[1] - right[1]) <= 1 to check (left - right) at given node
+        # left[0] and right[0]  to make sure if any node while trversing has returned false
         balanced = left[0] and right[0] and abs(left[1] - right[1]) <= 1
-        return [balanced, 1 + max(left[1], right[1])]
+
+        return [balanced, 1 + max(left[1], right[1])]  # 1 + max(left[1], right[1]) is the height at give node
 
     return dfs(node)[0]
 
