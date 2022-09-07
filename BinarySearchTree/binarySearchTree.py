@@ -88,6 +88,16 @@ def build_tree(elements):
 
     return root
 
+def isBalanced(node) -> bool:
+    def dfs(node):
+        if not node:  # the node is empty that is we have reached bottom
+            return [True, 0]
+
+        left, right = dfs(node.left), dfs(node.right)
+        balanced = left[0] and right[0] and abs(left[1] - right[1]) <= 1
+        return [balanced, 1 + max(left[1], right[1])]
+
+    return dfs(node)[0]
 
 if __name__ == "__main__":
     # countries = ["India", "Pakistan", "Germany", "USA", "China", "India", "UK", "USA"]
@@ -97,6 +107,7 @@ if __name__ == "__main__":
     # print("Sweden is in the list? ", country_tree.search("Sweden"))
 
     numbers_tree = build_tree([17, 4, 1, 20, 9, 23, 18, 34])
-    print("In order traversal gives this sorted list:", numbers_tree.in_order_traversal())
-    print("Pre order traversal gives this :", numbers_tree.pre_order_traversal())
-    print("Pre order traversal gives this :", numbers_tree.post_order_traversal())
+    # print("In order traversal gives this sorted list:", numbers_tree.in_order_traversal())
+    # print("Pre order traversal gives this :", numbers_tree.pre_order_traversal())
+    # print("Pre order traversal gives this :", numbers_tree.post_order_traversal())
+    print(isBalanced(numbers_tree))
