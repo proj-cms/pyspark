@@ -1,4 +1,5 @@
 # try this code on python tutor for visibility
+# this code works on string as well as on lists.
 
 def permutations(s, empty=''):
     if len(s) == 0:
@@ -11,4 +12,5 @@ def permutations(s, empty=''):
 
 
 if __name__ == "__main__":
+    permutations(['1', '2', '3'])
     permutations('ABC')
