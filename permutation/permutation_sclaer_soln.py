@@ -3,7 +3,7 @@
 
 def permutations(s, empty=''):
     if len(s) == 0:
-        print(empty)
+        print(empty)  # not S but the string 'empty' is bein printed
 
     for i in range(len(s)):
         newEmptyString = empty + s[i]
