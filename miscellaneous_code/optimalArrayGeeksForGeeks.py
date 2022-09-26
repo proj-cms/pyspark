@@ -19,16 +19,12 @@ def getOptimalArray(A: List[int]) -> List[int]:
 
 
 def calcOptimalArrayStep(A: List[int], B: List[int]):
-    sum_ = 0
-    for l, r in zip(A, B):
-        sum_ += abs(l - r)
-
-    return sum_
+    return sum(map(lambda i, j: abs(i - j), A, B))
 
 
 if __name__ == '__main__':
-    # A = [1,6,9,12]
-    A = [1, 1, 1, 7, 7, 10, 19]
+    A = [1, 6, 9, 12]
+    # A = [1, 1, 1, 7, 7, 10, 19]
     finalArray = [0]
     for i in range(2, len(A) + 1):
         B = getOptimalArray(A[0:i])
