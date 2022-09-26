@@ -1,25 +1,15 @@
-import math
 import statistics
 from typing import List
 
-
 def getBalancingElement(A: List[int]) -> int:
-    returnValue = 0
-    if len(A) % 2 == 0:  # eve numbered
-        returnValue = math.ceil((A[len(A) // 2] + A[len(A) // 2 - 1]) / 2)
-    else:
-        returnValue = statistics.median_low(A)
-
-    return returnValue
-
+    return statistics.median(A)
 
 def getOptimalArray(A: List[int]) -> List[int]:
     balancingElement = getBalancingElement(A)
     return [balancingElement] * len(A)
 
-
 def calcOptimalArrayStep(A: List[int], B: List[int]):
-    return sum(map(lambda i, j: abs(i - j), A, B))
+    return int(sum(map(lambda i, j: abs(i - j), A, B)))
 
 
 if __name__ == '__main__':
