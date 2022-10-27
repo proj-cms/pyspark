@@ -28,5 +28,6 @@ def first_missing_positive(A: List[int]) -> int:
 
 if __name__ == "__main__":
     # A = [3,-3,6,3]
-    A = [1, 2, 3]
+    # A = [1, 2, 3]
+    A = [-3, -5, 0]
     print(first_missing_positive(A))
