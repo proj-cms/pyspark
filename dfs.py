@@ -12,8 +12,11 @@ class Graph:
         # default dictionary to store graph
         self.graph = defaultdict(list)
 
+        # self.graph = dict()  - this fails - needs to find out why
+
     # function to add an edge to graph
     def addEdge(self, u, v):
+        assert isinstance(v, object)
         self.graph[u].append(v)
 
     # A function used by DFS
@@ -21,7 +24,7 @@ class Graph:
 
         # Mark the current node as visited and print it
         visited[v] = True
-        print(v, )
+        print(v)
 
         # Recur for all the vertices adjacent to
         # this vertex
@@ -35,7 +38,7 @@ class Graph:
         V = len(self.graph)  # total vertices
 
         # Mark all the vertices as not visited
-        visited = [False] * (V)
+        visited = [False] * V
         print(visited)
 
         # Call the recursive helper function to print
@@ -56,7 +59,7 @@ if __name__ == "__main__":
     g.addEdge(2, 0)
     g.addEdge(2, 3)
     g.addEdge(3, 3)
-
+    print(g.graph)
     print("Following is Depth First Traversal")
     g.DFS()
 
