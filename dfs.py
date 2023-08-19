@@ -20,17 +20,17 @@ class Graph:
         self.graph[u].append(v)
 
     # A function used by DFS
-    def DFSUtil(self, v, visited):
+    def DFSUtil(self, v, visited_local):
 
         # Mark the current node as visited and print it
-        visited[v] = True
+        visited_local[v] = True
         print(v)
 
         # Recur for all the vertices adjacent to
         # this vertex
         for i in self.graph[v]:
-            if not visited[i]:
-                self.DFSUtil(i, visited)
+            if not visited_local[i]:
+                self.DFSUtil(i, visited_local)
 
     # The function to do DFS traversal. It uses
     # recursive DFSUtil()
@@ -38,15 +38,14 @@ class Graph:
         V = len(self.graph)  # total vertices
 
         # Mark all the vertices as not visited
-        visited = [False] * V
-        print(visited)
+        visited_l = [False] * V
 
         # Call the recursive helper function to print
         # DFS traversal starting from all vertices one
         # by one
         for i in range(V):
-            if not visited[i]:
-                self.DFSUtil(i, visited)
+            if not visited_l[i]:
+                self.DFSUtil(i, visited_l)
 
 
 # Driver code
