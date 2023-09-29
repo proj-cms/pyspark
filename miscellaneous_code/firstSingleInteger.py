@@ -31,4 +31,4 @@ def singleNonDuplicate(nums: List[int], dbg: int) -> int:
 
 if __name__ == "__main__":
     A = [1, 1, 2, 3, 3, 4, 4]
-    print(singleNonDuplicate(A, 0))
+    print(singleNonDuplicate(A, 1))

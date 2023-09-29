@@ -1,5 +1,5 @@
-import math
 import json
+import math
 from typing import Callable
 
 
@@ -34,7 +34,7 @@ def is_prime(value: int):
 
 
 if __name__ == "__main__":
-    print ("call - 1-----")
+    print("call - 1-----")
     print(is_prime(10011))
     print("call - 2-----")
     print(is_prime(10011))

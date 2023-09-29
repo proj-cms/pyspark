@@ -14,4 +14,4 @@ def binary(n: int):
 if __name__ == "__main__":
     print('Python %s on %s' % (sys.version, sys.platform))
     A = [1, 2, 3, 4]
-    binary(4)
+    binary(3)

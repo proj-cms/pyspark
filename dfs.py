@@ -8,10 +8,8 @@ class Graph:
 
     # Constructor
     def __init__(self):
-
         # default dictionary to store graph
         self.graph = defaultdict(list)
-
         # self.graph = dict()  - this fails - needs to find out why
 
     # function to add an edge to graph
